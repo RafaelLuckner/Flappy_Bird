@@ -97,7 +97,8 @@ class Passaro:
         return pygame.mask.from_surface(self.imagem)
         
 class Cano:
-    DISTANCIA = 200
+
+    DISTANCIA = 170
     VELOCIDADE = 5
 
     def __init__(self, x):
@@ -251,7 +252,7 @@ def main(genomas, config):
                 if cano.colidir(passaro):
                     passaros.pop(i)
                     if ai_jogando:
-                        lista_genomas[i].fitness -= 1
+                        lista_genomas[i].fitness -= 5
                         lista_genomas.pop(i)
                         redes.pop(i)
 
@@ -268,7 +269,7 @@ def main(genomas, config):
             pontos += 1
             canos.append(Cano(600))
             for genoma in lista_genomas:
-                genoma.fitness += 5
+                genoma.fitness += 10
         for cano in remover_canos:
             canos.remove(cano)
 
